@@ -13,16 +13,16 @@ public class test1 {
 	
 		WebDriver auto = new ChromeDriver();//先创建一个对象		
 				
-		auto.get("http://test.xinlebao.com/ipayManage/login.htm");//第一步，打开登录页面
-		System.out.println(new Date()+"检查是否进入了登录页面："+"http://test.xinlebao.com/ipayManage/login.htm".equals(auto.getCurrentUrl()));//检查实际地址与预期是否一致
+		auto.get("http://192.168.3.210/login");//第一步，打开登录页面
+		System.out.println(new Date()+"检查是否进入了登录页面："+"http://192.168.3.210/login".equals(auto.getCurrentUrl()));//检查实际地址与预期是否一致
 				
-		auto.findElement(By.id("name")).clear();
-		auto.findElement(By.id("name")).sendKeys("superadmin");
+		auto.findElement(By.id("employeId")).clear();
+		auto.findElement(By.id("employeId")).sendKeys("superadmin");
 		auto.findElement(By.id("password")).clear();
 		auto.findElement(By.id("password")).sendKeys("ipay01");
-		auto.findElement(By.id("login")).click();
+		auto.findElement(By.xpath("//button[@type='button']")).click();
 		Thread.sleep(3000);
-		System.out.println(new Date()+"页面Url："+"http://test.xinlebao.com/ipayManage/manage/operationManage/debtorManage/verifyConfig.htm".equals(auto.getCurrentUrl()));
+		System.out.println(new Date()+"页面Url："+"http://192.168.3.210/backendUsers".equals(auto.getCurrentUrl()));
 				
 		auto.quit();  
 		
